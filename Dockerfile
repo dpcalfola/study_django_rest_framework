@@ -13,11 +13,11 @@ EXPOSE 8000
 
 ARG DEV=False
 
-RUN python -m venv /py && \
-    /py/bin/pip install --upgrade pip && \
-    /py/bin/pip install -r /tmp/requirements.txt && \
-    if [ $DEV = "true"]; \
-        then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
+RUN python -m venv /py_venv && \
+    /py_venv/bin/pip install --upgrade pip && \
+    /py_venv/bin/pip install -r /tmp/requirements.txt && \
+    if [ $DEV = "true" ]; \
+        then /py_venv/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
     adduser \
