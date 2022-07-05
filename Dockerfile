@@ -1,7 +1,7 @@
 FROM python:alpine3.16
 LABEL maintainer="github.com/dpcalfola"
 
-ENV PYTHONUNFUFFERED 1
+ENV PYTHONUNBUFFERED 1
 
 #ENV TZ Asia/Seoul
 
@@ -11,7 +11,7 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
-ARG DEV=False
+ARG DEV=false
 
 RUN python -m venv /py_venv && \
     /py_venv/bin/pip install --upgrade pip && \
@@ -25,6 +25,6 @@ RUN python -m venv /py_venv && \
         --no-create-home \
         django-user
 
-ENV PATH="py/bin:$PATH"
+ENV PATH="/py_venv/bin:$PATH"
 
 USER django-user
