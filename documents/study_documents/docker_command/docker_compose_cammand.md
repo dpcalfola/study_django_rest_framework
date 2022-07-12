@@ -32,3 +32,9 @@ docker-compose run --rm app sh -c "python manage.py test"
 * Django test suite
 * Setup tests per Django app
 * Run tests through Docker Compose
+
+<br>
+
+```shell
+docker-compose run --rm app sh -c "django-admin startproject app ."
+```
