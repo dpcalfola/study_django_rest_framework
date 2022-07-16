@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import sys
 from pathlib import Path
+import os
 
 # Json library
 import json
@@ -18,16 +19,23 @@ import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load .env json
-env_path = 'app/.env/.env.json'
-with open(env_path, "r") as json_file:
-    env_data = json.load(json_file)
+# GET ENV DATA
+
+# Try: Load .env json (local environment)
+# Catch: Get SECRET_KEY from git Actions Repository secrets (deploy environment)
+try:
+    env_path = 'app/.env/.env.json'
+    with open(env_path, "r") as json_file:
+        env_data = json.load(json_file)
+    secret_key = env_data['SECRET_KEY']
+except FileNotFoundError:
+    secret_key = os.environ.get('DJANGO_SECRET_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env_data['SECRET_KEY']
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
