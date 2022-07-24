@@ -4,13 +4,11 @@ For TDD practice:
 """
 
 
-def add(num_1, num_2):
-    """
-    Add num_1 and num_2
-    Return result
-    """
-    return num_1 + num_2
+class Calculator:
 
-
-def module_import_test():
-    print('imported')
+    def add(self, num_1, num_2):
+        """
+        Add num_1 and num_2
+        Return result
+        """
+        return num_1 + num_2
