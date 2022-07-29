@@ -1,5 +1,7 @@
 # Docker compose command
 
+
+1. How to execute linux(python-alpine) command in docker container 
 ```shell
 docker-compose run -rm app sh -c "python manage.py collectstatic"
 ```
@@ -15,6 +17,8 @@ docker-compose run -rm app sh -c "python manage.py collectstatic"
 
 <br>
 
+
+2. Linting 
 ```shell
 docker-compose run --rm app sh -c "flake8"
 ```
@@ -25,6 +29,7 @@ docker-compose run --rm app sh -c "flake8"
 
 <br>
 
+3. Execute Django Test
 ```shell
 docker-compose run --rm app sh -c "python manage.py test"
 ```
@@ -35,6 +40,14 @@ docker-compose run --rm app sh -c "python manage.py test"
 
 <br>
 
+4. Start Django project
 ```shell
 docker-compose run --rm app sh -c "django-admin startproject app ."
+```
+
+<br>
+
+5. Remove docker-compose container
+```shell
+docker-compose down 
 ```
