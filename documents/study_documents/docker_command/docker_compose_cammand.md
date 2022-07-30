@@ -51,3 +51,17 @@ docker-compose run --rm app sh -c "django-admin startproject app ."
 ```shell
 docker-compose down 
 ```
+
+
+6. Service start and stop
+```shell
+docker-compose up
+```
+```shell
+docker-compose stop
+```
+
+7. Make new Django app
+```shell
+docker-compose run --rm app sh -c "python manage.py startapp appName"
+```
