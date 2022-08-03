@@ -65,3 +65,11 @@ docker-compose stop
 ```shell
 docker-compose run --rm app sh -c "python manage.py startapp appName"
 ```
+
+8. Execute custom command
+```shell
+docker-compose run --rm app sh -c "python manage.py wait_for_db"
+```
+```shell
+docker-compose run --rm app sh -c "python manage.py wait_for_db && flake8"
+```
