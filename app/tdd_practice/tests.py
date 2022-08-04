@@ -2,7 +2,7 @@
 Sample tests
 """
 
-from django.test import TestCase
+from django.test import TestCase  # noqa
 from django.test import SimpleTestCase
 from .views import view_add
 from .calculator import Calculator

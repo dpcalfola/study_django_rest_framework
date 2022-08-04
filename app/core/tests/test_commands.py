@@ -26,7 +26,8 @@ class CommandTests(SimpleTestCase):
 
         patched_check.return_value = True
 
-        # call_command -> that from SimpleTestCase module that from django.core.management
+        # call_command
+        # -> that from SimpleTestCase module that from django.core.management
         call_command('wait_for_db')
 
         patched_check.assert_called_once_with(databases=['default'])
@@ -41,7 +42,9 @@ class CommandTests(SimpleTestCase):
         # Psycopg2Error 를 2번, OperationalError 를 3번 Raise 한 이후에 True를 반환한다
         # -> True 를 반환하는 시점의 call_count 는 6이어야 한다
         # -> assertEqual(...
-        patched_check.side_effect = [Psycopg2OpError] * 2 + [OperationalError] * 3 + [True]
+        patched_check.side_effect = [Psycopg2OpError] * 2 + \
+                                    [OperationalError] * 3 + \
+                                    [True]
 
         call_command('wait_for_db')
 

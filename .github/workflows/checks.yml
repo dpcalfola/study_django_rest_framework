@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Test
         run: docker-compose run --rm app sh -c "python manage.py test"
-# Make lint workflow code comment Cause of meaningless Lint Error (unused code but necessary)
-#      - name: Lint
-#        run: docker-compose run --rm app sh -c "flake8"
+
+      # Try "  # noqa" comment that makes 'imported but unused' linting error exclude
+      - name: Lint
+        run: docker-compose run --rm app sh -c "flake8"
