@@ -11,6 +11,10 @@ class ModelTests(TestCase):
 
     def test_create_user_with_email_successful(self):
         """Test creating a user with an email is successful"""
+
+        # Test message
+        print('Model Test 1: Create user')
+
         email = 'test_email@example.com'
         password = 'testPassword423'
         user = get_user_model().objects.create_user(
