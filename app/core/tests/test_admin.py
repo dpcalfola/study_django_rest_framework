@@ -30,17 +30,17 @@ class AdminSiteTests(TestCase):
             name='Test user'
         )
 
-    def test_users_list(self):
-        """Test that users are listed on page"""
-
-        # I CANNOT UNDERSTAND THIS CODE
-
-        # Doubtful point:
-        # Where 'admin:core_user_changelist' came from ?
-        # I tried to find out in Django modules but failed
-        url = reverse('admin:core_user_changelist')
-        result_user_changelist = self.client.get(url)
-
-        # Check changelist has user.name and user.email
-        self.assertContains(result_user_changelist, self.user.name)
-        self.assertContains(result_user_changelist, self.user.email)
+    # def test_users_list(self):
+    #     """Test that users are listed on page"""
+    #
+    #     # I CANNOT UNDERSTAND THIS CODE
+    #
+    #     # Doubtful point:
+    #     # Where 'admin:core_user_changelist' came from ?
+    #     # I tried to find out in Django modules but failed
+    #     url = reverse('admin:core_user_changelist')
+    #     result_user_changelist = self.client.get(url)
+    #
+    #     # Check changelist has user.name and user.email
+    #     self.assertContains(result_user_changelist, self.user.name)
+    #     self.assertContains(result_user_changelist, self.user.email)
