@@ -30,33 +30,33 @@ class AdminSiteTests(TestCase):
             name='Test user'
         )
 
-    # def test_users_list(self):
-    #     """Test that users are listed on page"""
-    #
-    #     # I CANNOT UNDERSTAND THIS CODE
-    #
-    #     # Test message
-    #     print('Admin Test 1: Users list')
-    #
-    #     # Doubtful point:
-    #     # Where 'admin:core_user_changelist' came from ?
-    #     # I tried to find out in Django modules but failed
-    #     url = reverse('admin:core_user_changelist')
-    #     res = self.client.get(url)
-    #
-    #     # Check changelist has user.name and user.email
-    #     self.assertContains(res, self.user.name)
-    #     self.assertContains(res, self.user.email)
-    #
-    # def test_edit_user_page(self):
-    #     """Test the edit user page"""
-    #
-    #     # Test message
-    #     print('Admin Test 2: Edit user page')
-    #
-    #     # Doubtful point again:
-    #     # Where 'admin:core_user_change' came from ?
-    #     url = reverse('admin:core_user_change', args=[self.user.id])
-    #     res = self.client.get(url)
-    #
-    #     self.assertEqual(res.status_code, 200)
+    def test_users_list(self):
+        """Test that users are listed on page"""
+
+        # I CANNOT UNDERSTAND THIS CODE
+
+        # Test message
+        print('Admin Test 1: Users list')
+
+        # Doubtful point:
+        # Where 'admin:core_user_changelist' came from ?
+        # I tried to find out in Django modules but failed
+        url = reverse('admin:core_user_changelist')
+        res = self.client.get(url)
+
+        # Check changelist has user.name and user.email
+        self.assertContains(res, self.user.name)
+        self.assertContains(res, self.user.email)
+
+    def test_edit_user_page(self):
+        """Test the edit user page"""
+
+        # Test message
+        print('Admin Test 2: Edit user page')
+
+        # Doubtful point again:
+        # Where 'admin:core_user_change' came from ?
+        url = reverse('admin:core_user_change', args=[self.user.id])
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
