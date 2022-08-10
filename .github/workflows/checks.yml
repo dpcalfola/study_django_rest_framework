@@ -21,14 +21,14 @@ jobs:
         run: echo "${TEST_ENV_VARIABLE}"
       - name: Create env file
         run: |
-          pwd
-          mkdir app/app/env
-          echo "Success make directory"
-          touch app/app/env/env.py
+#          pwd
+#          mkdir app/app/env
+#          echo "Success make directory"
+          touch app/app/secret_env.py
           echo "Success make env file"
-          echo "${{ secrets.DJANGO_ENV }}" >> app/app/env/env.py
+          echo "${{ secrets.DJANGO_ENV }}" >> app/app/secret_env.py
           echo "Success writing env data"
-      - name: Test
+      - name: Create env file and Test
         run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
       - name: Lint
         run: docker-compose run --rm app sh -c "flake8"
