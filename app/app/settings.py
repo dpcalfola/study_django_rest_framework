@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Import secret env
-from .env.secret_env import ENV_SECRET_KEY
+from .secret_env import ENV_SECRET_KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
