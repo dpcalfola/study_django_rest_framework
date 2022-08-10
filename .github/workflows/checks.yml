@@ -7,8 +7,6 @@ jobs:
   test-lint:
     name: Test and Lint
     runs-on: ubuntu-22.04
-    env:
-      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
     steps:
       - name: Login to Docker Hub
         uses: docker/login-action@v1
@@ -22,6 +20,8 @@ jobs:
           TEST_ENV_VARIABLE: test-env-variable-123456789
         run: echo ${TEST_ENV_VARIABLE}
       - name: Test
+        env:
+          SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
       - name: Lint
         run: docker-compose run --rm app sh -c "flake8"
