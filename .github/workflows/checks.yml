@@ -21,9 +21,6 @@ jobs:
         run: echo "${TEST_ENV_VARIABLE}"
       - name: Create env file
         run: |
-#          pwd
-#          mkdir app/app/env
-#          echo "Success make directory"
           touch app/app/secret_env.py
           echo "Success make env file"
           echo "${{ secrets.DJANGO_ENV }}" >> app/app/secret_env.py
