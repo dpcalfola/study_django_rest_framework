@@ -22,16 +22,12 @@ jobs:
       - name: Create env file
         run: |
           pwd
-          mkdir app/app/.env
+          mkdir app/app/env
           echo "Success make directory"
-          touch app/app/.env/.env.json
+          touch app/app/env/env.py
           echo "Success make env file"
-          set +H
-          echo ${{ secrets.DJANGO_ENV }} >> app/app/.env/env.json
-          set -H
+          echo ${{ secrets.DJANGO_ENV }} >> app/app/env/env.py
           echo "Success writing env data"
-          tail -1 app/app/.env/.env.json
-          echo "Success tail command"
       - name: Test
         run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
       - name: Lint
