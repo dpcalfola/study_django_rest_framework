@@ -21,9 +21,10 @@ jobs:
         run: echo ${TEST_ENV_VARIABLE}
       - name: Create env file
         run: |
-          touch app/.env/.json
-          echo ${{ secrets.DJANGO_ENV}} >> app/.env/.json
-          tail -1 app/.env/.json
+          pwd
+          touch app/.env/.env.json
+          echo ${{ secrets.DJANGO_ENV}} >> app/.env/env.json
+          tail -1 app/.env/.env.json
       - name: Test
         run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
       - name: Lint
