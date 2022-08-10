@@ -23,6 +23,7 @@ jobs:
         run: |
           pwd
           ls -a
+          mkdir app/app/.env
           touch app/app/.env/.env.json
           echo ${{ secrets.DJANGO_ENV}} >> app/app/.env/env.json
           tail -1 app/app/.env/.env.json
