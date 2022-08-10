@@ -23,13 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Try: Load .env json (local environment)
 # Catch: Get SECRET_KEY from git Actions Repository secrets (deploy environment)
-try:
-    env_path = 'app/.env/.env.json'
-    with open(env_path, "r") as json_file:
-        env_data = json.load(json_file)
-    secret_key = env_data['SECRET_KEY']
-except FileNotFoundError:
-    secret_key = os.environ.get('DJANGO_SECRET_KEY')
+# try:
+#     env_path = 'app/.env/.env.json'
+#     with open(env_path, "r") as json_file:
+#         env_data = json.load(json_file)
+#     secret_key = env_data['SECRET_KEY']
+# except FileNotFoundError:
+#     secret_key = os.environ.get('DJANGO_SECRET_KEY')
+
+env_path = 'app/.env/.env.json'
+with open(env_path, "r") as json_file:
+    env_data = json.load(json_file)
+secret_key = env_data['SECRET_KEY']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
