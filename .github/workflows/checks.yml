@@ -23,7 +23,7 @@ jobs:
         run: |
           touch app/app/secret_env.py
           echo "Success make env file"
-          echo DJANGO_ENV >> app/app/secret_env.py
+          echo ${DJANGO_ENV} >> app/app/secret_env.py
           echo "Success writing env data"
         env:
           DJANGO_ENV: ${{ secrets.DJANGO_ENV }}
