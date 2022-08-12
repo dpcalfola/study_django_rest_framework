@@ -16,15 +16,11 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
-      - name: CI env test
-        env:
-          TEST_ENV_VARIABLE: test-env-variable-123456789
-        run: echo ${TEST_ENV_VARIABLE}
       - name: Create env file
         run: |
-          touch app/app/secret_env.py
+          touch app/app/env/secret_env.py
           echo "Success make env file"
-          echo ${DJANGO_ENV} >> app/app/secret_env.py
+          echo ${DJANGO_ENV} >> app/app/env/secret_env.py
           echo "Success writing env data"
         env:
           DJANGO_ENV: ${{ secrets.DJANGO_ENV }}
