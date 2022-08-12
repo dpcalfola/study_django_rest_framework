@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Create env file
         run: |
+          mkdir app/app/env
+          echo "Success make env directory"
           touch app/app/env/secret_env.py
           echo "Success make env file"
           echo ${DJANGO_ENV} >> app/app/env/secret_env.py
