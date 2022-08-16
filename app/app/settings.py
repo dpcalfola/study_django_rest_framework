@@ -46,6 +46,8 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     'tdd_practice.apps.TddPracticeConfig',
     'core',
+    'rest_framework',
+    'drf_spectacular',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
@@ -145,3 +147,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Declare Base Django user model changes to my custom model
 # which located core/models.py
 AUTH_USER_MODEL = 'core.User'
+
+#
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
