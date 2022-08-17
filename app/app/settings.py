@@ -43,23 +43,18 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-PROJECT_APPS = [
-    'tdd_practice.apps.TddPracticeConfig',
-    'core',
+THIRD_PARTY_APP = [
     'rest_framework',
     'drf_spectacular',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+PROJECT_APPS = [
+    'tdd_practice.apps.TddPracticeConfig',
+    'core',
+    'user',
+]
 
-# INSTALLED_APPS = [
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-# ]
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APP + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
