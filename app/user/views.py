@@ -20,15 +20,16 @@ class CreateUserView(generics.CreateAPIView):
 
 
 class CreateTokenView(ObtainAuthToken):
-    """Create a new auth token for user"""
-
     """
-    Override serializer_class
-        to customized class (user.serializers.AuthTokenSerializer)  
+    Create a new auth token for user
+
+    * Override serializer_class
+        to customized class (user.serializers.AuthTokenSerializer)
         instead of default AuthTokenSerializer
             cause of default base user model consist of username and password
             But this project uses user model as email and password
     """
+
     serializer_class = AuthTokenSerializer
 
     # For availability in browser
