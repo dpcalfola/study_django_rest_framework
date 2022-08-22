@@ -64,5 +64,15 @@
     test_update_user_profile():
         3. ME_URL 로 patch 요청하여 'name', 'password' 항목을 업데이트하는 객체를 생성하고, DB를 refresh
             3-1. 객체 생성 응답코드가 '200_OK'
-            3-2. 생성된 객체의 'name' 값이 업데이트 되었음
-            3-2. 생성된 객체에서 업데이트된 'password' 가 통과됨
+            3-2. test user의 'name' 값이 업데이트 되었음
+            3-3. test user에서 업데이트된 'password' 가 통과됨
+
+    test_update_user_profile_without_password_change():
+        4. ME_URL 로 patch 요청
+            'password' 항목은 비워두고
+            'email', 'name' 항목만을 업데이트하는 객체를 생성하고, DB를 refresh
+            
+            4-1. 객체 생성 응답코드가 '200_OK'
+            4-2. 생성된 객체의 'email' 값이 업데이트 되었음
+            4-3. 생성된 객체의 'name' 값이 업데이트 되었음
+            4-4. 생성된 객체 업데이트된 'password' 가 통과됨

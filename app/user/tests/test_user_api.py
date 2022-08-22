@@ -195,4 +195,17 @@ class PrivateUserApiTests(TestCase):
         self.assertEqual(self.user.name, payload['name'])
         self.assertTrue(self.user.check_password(payload['password']))
 
+    def test_update_user_profile_without_password_change(self):
+        """Test updating email and name user profile but password"""
 
+        payload = {
+            'email': 'updated_email@example.com',
+            'name': 'Updated Name',
+        }
+        res = self.client.patch(ME_URL, payload)
+        self.user.refresh_from_db()
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(self.user.email, payload['email'])
+        self.assertEqual(self.user.name, payload['name'])
+        self.assertTrue(self.user.check_password(self.user.password))
