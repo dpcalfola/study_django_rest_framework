@@ -53,6 +53,7 @@ PROJECT_APPS = [
     'tdd_practice.apps.TddPracticeConfig',
     'core',
     'user',
+    'recipe',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APP + PROJECT_APPS
